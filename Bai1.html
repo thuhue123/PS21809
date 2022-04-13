@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1 - Lab 8</title>
+    <link rel="stylesheet" href="bai1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="container">
+        <h2>ĐẶT HÀNG</h2>
+        <form name="frm">
+            <p class="form-group">
+                <label>Mã sinh viên</label>
+                <input class="form-control" type="text" name="msv" required ng-model="msv"/><br>
+                <em ng-if="frm.msv.$invalid">Mã sinh viên không được bổ trống</em>
+            </p>
+            <p class="form-group">
+                <label>Họ và tên</label>
+                <input class="form-control" type="text" name="hvt" required ng-model="hvt"/><br>
+                <em ng-if="frm.hvt.$invalid">Họ tên không được bổ trống</em>
+            </p>
+            <p class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" name="mail" required ng-model="mail"/><br>
+                <em ng-if="frm.mail.$invalid">Email không được bổ trống</em>
+            </p>
+            <p class="form-group">
+                <label>Giới Tính</label>
+                <fieldset>
+                    <input class="form-control" type="radio" name="nam" required ng-model="nam"/>Nam
+                    <input class="form-control" type="radio" name="nu" required ng-model="nu"/>Nữ
+                </fieldset>
+                <em ng-if="!nam && nu==0">Vui lòng chọn giới tính của mình</em>
+            </p>
+            <p class="form-group">
+                <label>Sở Thích</label>
+                <fieldset>
+                    <div class="form-control" required ng-model="sothich">
+                        <label><input type="checkbox" name="sothich" value="1" required ng-model="ds"/>Đọc sách</label>
+                        <label><input type="checkbox" name="sothich" value="2" required ng-model="dl"/>Du lịch</label>
+                        <label><input type="checkbox" name="sothich" value="3" required ng-model="at"/>Ẩm thực</label>
+                        <label><input type="checkbox" name="sothich" value="4" required ng-model="an"/>Âm nhạc</label>
+                        <label><input type="checkbox" name="sothich" value="5" required ng-model="khac"/>Khác</label>
+                    </div>
+                </fieldset>
+                <em ng-if="frm.sothich.$invalid ">Vui lòng chọn sở thích của mình</em>
+            </p>
+            <p class="form-group">
+                <label>Quốc tịch </label>
+                <input list="quoctich" class="form-control" required ng-model="quoctich"/>
+                <datalist id="quoctich">
+                    <option>Việt Nam</option>
+                    <option>Thái Lan</option>
+                    <option>America</option>
+                    <option>Nhật Bản</option>
+                    <option>Singapo</option>
+                    <option>Hàn Quốc</option>
+                </datalist>
+                <em ng-if="">Vui lòng chọn quốc tịch của mình</em>
+            </p>
+            <p class="form-group">
+                <label>Ghi Chú </label>
+                <textarea rows="3" cols="30" class="form-control"></textarea>
+            </p>
+            <hr />
+            <p class="form-group">
+                <div class="form-group">
+                    <button class="button" type="submit">Đăng ký</button>
+                </div>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        //xuly
+    });
+</script>
